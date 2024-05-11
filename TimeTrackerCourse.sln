@@ -3,17 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34728.123
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimeTrackerCourse.Server", "TimeTrackerCourse.Server\TimeTrackerCourse.Server\TimeTrackerCourse.Server.csproj", "{6018F779-1942-48EC-8452-3C3FAC43F3ED}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TimeTrackerCourse.Server", "TimeTrackerCourse.Server\TimeTrackerCourse.Server\TimeTrackerCourse.Server.csproj", "{6018F779-1942-48EC-8452-3C3FAC43F3ED}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimeTrackerCourse.Client", "TimeTrackerCourse.Server\TimeTrackerCourse.Server.Client\TimeTrackerCourse.Client.csproj", "{C5912CA8-9E05-42D4-9C84-7455A975ACBD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TimeTrackerCourse.Client", "TimeTrackerCourse.Server\TimeTrackerCourse.Server.Client\TimeTrackerCourse.Client.csproj", "{C5912CA8-9E05-42D4-9C84-7455A975ACBD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimeTrackerCourse.Shared", "TimeTrackerCourse.Shared\TimeTrackerCourse.Shared.csproj", "{1595D9CF-ADE7-4A12-B287-8CB92010D1A7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TimeTrackerCourse.Shared", "TimeTrackerCourse.Shared\TimeTrackerCourse.Shared.csproj", "{1595D9CF-ADE7-4A12-B287-8CB92010D1A7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimeTrackerCourse.Data", "TimeTrackerCourse.Data\TimeTrackerCourse.Data.csproj", "{575065C0-2843-45F6-A4B0-D49FA003FA0A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TimeTrackerCourse.Data", "TimeTrackerCourse.Data\TimeTrackerCourse.Data.csproj", "{575065C0-2843-45F6-A4B0-D49FA003FA0A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimeTrackerCourse.Core", "TimeTrackerCourse.Core\TimeTrackerCourse.Core.csproj", "{90072FF0-F962-40E2-BEE2-93D3A0379D90}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TimeTrackerCourse.Core", "TimeTrackerCourse.Core\TimeTrackerCourse.Core.csproj", "{90072FF0-F962-40E2-BEE2-93D3A0379D90}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimeTrackerCourse.Service", "TimeTrackerCourse.Service\TimeTrackerCourse.Service.csproj", "{FF42634C-0BAF-47C7-974D-234022B5B8FA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TimeTrackerCourse.Service", "TimeTrackerCourse.Service\TimeTrackerCourse.Service.csproj", "{FF42634C-0BAF-47C7-974D-234022B5B8FA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
