@@ -1,4 +1,5 @@
 ﻿using Mapster;
+using TimeTrackerCourse.Core.Exceptions;
 using TimeTrackerCourse.Data.Repositories.TimeEntryRepository;
 using TimeTrackerCourse.Shared.Dtos.TimeEntryDtos;
 using TimeTrackerCourse.Shared.Entities;
@@ -14,15 +15,15 @@ public class TimeEntryservice : ITimeEntryService
     }
 
 
-    public List<TimeEntryResponseDto> GetAllTimeEntries()
+    public async Task<List<TimeEntryResponseDto>> GetAllTimeEntries()
     {
-        var result = _timeEntryRepository.GetAllTimeEntries();
+        var result = await _timeEntryRepository.GetAllTimeEntries();
         return result.Adapt<List<TimeEntryResponseDto>>();
     }
 
-    public TimeEntryResponseDto GetTimeEntry(int id)
+    public async Task<TimeEntryResponseDto?> GetTimeEntryById(int id)
     {
-        var result = _timeEntryRepository.GetTimeEntryById(id);
+        var result = await _timeEntryRepository.GetTimeEntryById(id);
         if (result == null)
         {
             throw new Exception("Entry not found");
@@ -30,27 +31,31 @@ public class TimeEntryservice : ITimeEntryService
         return result.Adapt<TimeEntryResponseDto>();
     }
 
-    public List<TimeEntryResponseDto> GetTimeEntries(TimeEntryCreateDto timeEntry)
+    public async Task<List<TimeEntryResponseDto>> CreateTimeEntries(TimeEntryCreateDto timeEntry)
     {
         var newEntry = timeEntry.Adapt<TimeEntry>();
-        var result = _timeEntryRepository.CreateTimeEntry(newEntry);
+        var result = await _timeEntryRepository.CreateTimeEntry(newEntry);
         return result.Adapt<List<TimeEntryResponseDto>>();
     }
 
-    public List<TimeEntryResponseDto> UpdateTimeEntry(int id, TimeEntryUpdateDto timeEntry)
+    public async Task<List<TimeEntryResponseDto>?> UpdateTimeEntry(int id, TimeEntryUpdateDto timeEntry)
     {
-        var updatedEntry = timeEntry.Adapt<TimeEntry>();
-        var result = _timeEntryRepository.UpdateTimeEntry(id, updatedEntry);
-        if (result == null)
+        try
         {
-            throw new Exception("Entry not found");
+            var updatedEntry = timeEntry.Adapt<TimeEntry>();
+            var result = await _timeEntryRepository.UpdateTimeEntry(id, updatedEntry);
+            return result.Adapt<List<TimeEntryResponseDto>>();
         }
-        return result.Adapt<List<TimeEntryResponseDto>>();
+        catch (EntityNotFoundException)
+        {
+            return null;
+        }
+
     }
 
-    public List<TimeEntryResponseDto> DeleteTimeEntry(int id)
+    public async Task<List<TimeEntryResponseDto>> DeleteTimeEntry(int id)
     {
-        var result = _timeEntryRepository.DeleteTimeEntry(id);
+        var result = await _timeEntryRepository.DeleteTimeEntry(id);
         if (result == null)
         {
             throw new Exception("Entry not found");

@@ -22,9 +22,9 @@ public class TimeEntryController : ControllerBase
     }
 
     [HttpGet("{id}")]
-    public ActionResult<TimeEntryResponseDto> GetTimeEntry(int id)
+    public async Task<ActionResult<TimeEntryResponseDto>> GetTimeEntry(int id)
     {
-        var result = _timeEntryService.GetAllTimeEntries().FirstOrDefault(x => x.Id == id);
+        var result = await _timeEntryService.GetTimeEntryById(id);
         if (result == null)
         {
             return NotFound();
@@ -34,20 +34,30 @@ public class TimeEntryController : ControllerBase
 
 
     [HttpPost]
-    public ActionResult<List<TimeEntryResponseDto>> CreateTimeEntry(TimeEntryCreateDto timeEntry)
+    public async Task<ActionResult<List<TimeEntryResponseDto>>> CreateTimeEntry(TimeEntryCreateDto timeEntry)
     {
-        return Ok(_timeEntryService.GetTimeEntries(timeEntry));
+        return Ok(await _timeEntryService.CreateTimeEntries(timeEntry));
     }
 
     [HttpPut("{id}")]
-    public ActionResult<List<TimeEntryResponseDto>> UpdateTimeEntry(int id, TimeEntryUpdateDto timeEntry)
+    public async Task<ActionResult<List<TimeEntryResponseDto>>> UpdateTimeEntry(int id, TimeEntryUpdateDto timeEntry)
     {
-        return Ok(_timeEntryService.UpdateTimeEntry(id, timeEntry));
+        var result = await _timeEntryService.UpdateTimeEntry(id, timeEntry);
+        if (result == null)
+        {
+            return NotFound();
+        }
+        return Ok(result);
     }
 
     [HttpDelete("{id}")]
-    public ActionResult<List<TimeEntryResponseDto>> DeleteTimeEntry(int id)
+    public async Task<ActionResult<List<TimeEntryResponseDto>>> DeleteTimeEntry(int id)
     {
-        return Ok(_timeEntryService.DeleteTimeEntry(id));
+        var result = await _timeEntryService.DeleteTimeEntry(id);
+        if (result == null)
+        {
+            return NotFound();
+        }
+        return Ok(result);
     }
 }

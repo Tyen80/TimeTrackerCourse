@@ -10,7 +10,7 @@ builder.Services.AddRazorComponents()
     .AddInteractiveWebAssemblyComponents();
 
 builder.Services.AddControllers();
-builder.Services.AddDataLayer();
+builder.Services.AddDataLayer(builder.Configuration);
 builder.Services.AddServiceLayer();
 
 var app = builder.Build();

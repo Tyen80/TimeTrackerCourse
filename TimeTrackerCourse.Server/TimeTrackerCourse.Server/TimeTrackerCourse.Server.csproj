@@ -13,6 +13,10 @@
     <ProjectReference Include="..\..\TimeTrackerCourse.Shared\TimeTrackerCourse.Shared.csproj" />
     <ProjectReference Include="..\TimeTrackerCourse.Server.Client\TimeTrackerCourse.Client.csproj" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="8.0.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.4">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
   </ItemGroup>
 
 </Project>
