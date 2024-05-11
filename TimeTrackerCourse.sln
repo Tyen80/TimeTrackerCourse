@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimeTrackerCourse.Server", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimeTrackerCourse.Client", "TimeTrackerCourse.Server\TimeTrackerCourse.Server.Client\TimeTrackerCourse.Client.csproj", "{C5912CA8-9E05-42D4-9C84-7455A975ACBD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimeTrackerCourse.Shared", "TimeTrackerCourse.Shared\TimeTrackerCourse.Shared.csproj", "{1595D9CF-ADE7-4A12-B287-8CB92010D1A7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{C5912CA8-9E05-42D4-9C84-7455A975ACBD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C5912CA8-9E05-42D4-9C84-7455A975ACBD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C5912CA8-9E05-42D4-9C84-7455A975ACBD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1595D9CF-ADE7-4A12-B287-8CB92010D1A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1595D9CF-ADE7-4A12-B287-8CB92010D1A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1595D9CF-ADE7-4A12-B287-8CB92010D1A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1595D9CF-ADE7-4A12-B287-8CB92010D1A7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\TimeTrackerCourse.Shared\TimeTrackerCourse.Shared.csproj" />
     <ProjectReference Include="..\TimeTrackerCourse.Server.Client\TimeTrackerCourse.Client.csproj" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="8.0.4" />
   </ItemGroup>
