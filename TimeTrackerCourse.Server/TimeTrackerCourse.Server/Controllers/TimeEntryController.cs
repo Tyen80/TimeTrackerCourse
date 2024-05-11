@@ -1,29 +1,53 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using TimeTrackerCourse.Shared.Entities;
+using TimeTrackerCourse.Service.Services.TimeEntryService;
+using TimeTrackerCourse.Shared.Dtos.TimeEntryDtos;
 
 namespace TimeTrackerCourse.Server.Controllers;
 [Route("api/[controller]")]
 [ApiController]
 public class TimeEntryController : ControllerBase
 {
-    private static List<TimeEntry> _timeEntries = new List<TimeEntry>
-    {
-        new TimeEntry { Id = 1, Project = "Project 1", Start = DateTime.Now.AddHours(-2), End = DateTime.Now.AddHours(-1) },
-        new TimeEntry { Id = 2, Project = "Project 2", Start = DateTime.Now.AddHours(-1), End = DateTime.Now },
-        new TimeEntry { Id = 3, Project = "Project 3", Start = DateTime.Now.AddHours(-3), End = DateTime.Now.AddHours(-2) }
+    private readonly ITimeEntryService _timeEntryService;
 
-    };
-
-    [HttpGet]
-    public ActionResult<List<TimeEntry>> GetAllTimeEntrys()
+    public TimeEntryController(ITimeEntryService timeEntryService)
     {
-        return Ok(_timeEntries);
+        _timeEntryService = timeEntryService;
     }
 
-    [HttpPost]
-    public ActionResult<List<TimeEntry>> CreateTimeEntry(TimeEntry timeEntry)
+    [HttpGet]
+    public ActionResult<List<TimeEntryResponseDto>> GetAllTimeEntrys()
     {
-        _timeEntries.Add(timeEntry);
-        return Ok(_timeEntries);
+        var result = _timeEntryService.GetAllTimeEntries();
+        return Ok(result);
+    }
+
+    [HttpGet("{id}")]
+    public ActionResult<TimeEntryResponseDto> GetTimeEntry(int id)
+    {
+        var result = _timeEntryService.GetAllTimeEntries().FirstOrDefault(x => x.Id == id);
+        if (result == null)
+        {
+            return NotFound();
+        }
+        return Ok(result);
+    }
+
+
+    [HttpPost]
+    public ActionResult<List<TimeEntryResponseDto>> CreateTimeEntry(TimeEntryCreateDto timeEntry)
+    {
+        return Ok(_timeEntryService.GetTimeEntries(timeEntry));
+    }
+
+    [HttpPut("{id}")]
+    public ActionResult<List<TimeEntryResponseDto>> UpdateTimeEntry(int id, TimeEntryUpdateDto timeEntry)
+    {
+        return Ok(_timeEntryService.UpdateTimeEntry(id, timeEntry));
+    }
+
+    [HttpDelete("{id}")]
+    public ActionResult<List<TimeEntryResponseDto>> DeleteTimeEntry(int id)
+    {
+        return Ok(_timeEntryService.DeleteTimeEntry(id));
     }
 }

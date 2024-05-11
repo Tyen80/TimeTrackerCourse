@@ -1,4 +1,6 @@
+using TimeTrackerCourse.Data;
 using TimeTrackerCourse.Server.Components;
+using TimeTrackerCourse.Service;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,6 +10,8 @@ builder.Services.AddRazorComponents()
     .AddInteractiveWebAssemblyComponents();
 
 builder.Services.AddControllers();
+builder.Services.AddDataLayer();
+builder.Services.AddServiceLayer();
 
 var app = builder.Build();
 
