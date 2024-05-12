@@ -11,13 +11,6 @@ public class TimeEntryRepository : ITimeEntryRepository
         _context = context;
     }
 
-    private static List<TimeEntry> _timeEntries = new List<TimeEntry>
-    {
-        new TimeEntry { Id = 1, Project = "Project 1", Start = DateTime.Now.AddHours(-2), End = DateTime.Now.AddHours(-1) },
-        new TimeEntry { Id = 2, Project = "Project 2", Start = DateTime.Now.AddHours(-1), End = DateTime.Now },
-        new TimeEntry { Id = 3, Project = "Project 3", Start = DateTime.Now.AddHours(-3), End = DateTime.Now.AddHours(-2) }
-
-    };
     private readonly DataContext _context;
 
     public async Task<List<TimeEntry>> GetAllTimeEntries()

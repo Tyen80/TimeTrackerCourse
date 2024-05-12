@@ -15,9 +15,9 @@ public class TimeEntryController : ControllerBase
     }
 
     [HttpGet]
-    public ActionResult<List<TimeEntryResponseDto>> GetAllTimeEntrys()
+    public async Task<ActionResult<List<TimeEntryResponseDto>>> GetAllTimeEntrys()
     {
-        var result = _timeEntryService.GetAllTimeEntries();
+        var result = await _timeEntryService.GetAllTimeEntries();
         return Ok(result);
     }
 
