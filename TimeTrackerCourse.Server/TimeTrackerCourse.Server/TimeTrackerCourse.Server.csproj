@@ -7,10 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\TimeTrackerCourse.Core\TimeTrackerCourse.Core.csproj" />
-    <ProjectReference Include="..\..\TimeTrackerCourse.Data\TimeTrackerCourse.Data.csproj" />
-    <ProjectReference Include="..\..\TimeTrackerCourse.Service\TimeTrackerCourse.Service.csproj" />
-    <ProjectReference Include="..\..\TimeTrackerCourse.Shared\TimeTrackerCourse.Shared.csproj" />
     <ProjectReference Include="..\TimeTrackerCourse.Server.Client\TimeTrackerCourse.Client.csproj" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="8.0.4" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.4">
